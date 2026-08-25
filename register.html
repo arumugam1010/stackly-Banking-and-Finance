@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register — Stackly</title>
+    <meta name="description" content="Open your Stackly account in minutes." />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+  </head>
+  <body class="dashboard-body">
+    <div id="loader" class="loader"><div class="loader__logo"><span class="loader__ring"></span><span class="loader__text">Stackly</span></div></div>
+
+    <div class="auth-page">
+      <!-- Visual side -->
+      <div class="auth-visual d-none d-lg-flex">
+        <div class="auth-visual__content">
+          <a href="index.html" class="navbar-brand mb-5 d-inline-flex" style="color:#fff">
+            <img src="assets/images/logo-stackly.png" alt="Stackly" class="project-logo">
+          </a>
+          <h2>Open your account in minutes.</h2>
+          <p>Join 2.4 million customers who bank smarter with Stackly. No paperwork, no hidden fees — just beautiful banking.</p>
+          <div class="auth-visual__features">
+            <div class="auth-visual__feature"><i class="bi bi-check-circle"></i> Zero monthly fees, forever</div>
+            <div class="auth-visual__feature"><i class="bi bi-gift"></i> Get a free premium debit card</div>
+            <div class="auth-visual__feature"><i class="bi bi-percent"></i> Earn 4.5% APY on savings</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form side -->
+      <div class="auth-form-side">
+        <div class="auth-form-wrapper">
+          <a href="index.html" class="navbar-brand mb-4 d-lg-none">
+            <img src="assets/images/logo-stackly.png" alt="Stackly" class="project-logo">
+          </a>
+          <h2>Create your account</h2>
+          <p>Start your banking journey with Stackly today.</p>
+
+          <!-- Account type -->
+          <div class="role-selector">
+            <div class="role-option active" data-role="customer" onclick="selectRole('customer')">
+              <i class="bi bi-person-circle"></i>
+              <p>Customer</p>
+            </div>
+            <div class="role-option" data-role="admin" onclick="selectRole('admin')">
+              <i class="bi bi-shield-lock"></i>
+              <p>Admin</p>
+            </div>
+          </div>
+
+          <form id="registerForm">
+            <div class="row g-2">
+              <div class="col-md-6">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control" placeholder="John" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" placeholder="Doe" required />
+              </div>
+              <div class="col-12">
+                <label class="form-label">Email Address</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                  <input type="email" class="form-control" placeholder="you@email.com" required />
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Phone Number</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                  <input type="tel" class="form-control" placeholder="+1 555-0100" required />
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Password</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                  <input type="password" class="form-control" id="regPassword" placeholder="Min 8 characters" required />
+                  <button class="btn btn-ghost" type="button" onclick="togglePassword('regPassword', this)"><i class="bi bi-eye"></i></button>
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Confirm Password</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                  <input type="password" class="form-control" id="regPassword2" placeholder="Re-enter password" required />
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="terms" required />
+                  <label class="form-check-label text-muted-2" for="terms" style="font-size:0.85rem">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-glow w-100 btn-lg">Create account <i class="bi bi-arrow-right ms-1"></i></button>
+              </div>
+            </div>
+          </form>
+
+          <p class="text-center text-muted-2 mt-4" style="font-size:0.875rem">
+            Already have an account? <a href="login.html">Sign in</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+      
+      
+
+      let selectedRole = 'customer';
+      window.selectRole = function(role) {
+        selectedRole = role;
+        document.querySelectorAll('.role-option').forEach(el => {
+          el.classList.toggle('active', el.dataset.role === role);
+        });
+      };
+
+      window.togglePassword = function(id, btn) {
+        const input = document.getElementById(id);
+        if (input.type === 'password') { input.type = 'text'; btn.innerHTML = '<i class="bi bi-eye-slash"></i>'; }
+        else { input.type = 'password'; btn.innerHTML = '<i class="bi bi-eye"></i>'; }
+      };
+
+      document.getElementById('registerForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const pw1 = document.getElementById('regPassword').value;
+        const pw2 = document.getElementById('regPassword2').value;
+        if (pw1 !== pw2) { showToast('Error', 'Passwords do not match', 'error'); return; }
+        if (pw1.length < 8) { showToast('Error', 'Password must be at least 8 characters', 'error'); return; }
+        
+        showToast('Successfully Created', 'Account successfully created. Redirecting to login...', 'success');
+        setTimeout(() => { window.location.href = 'login.html'; }, 1500);
+      });
+    </script>
+  </body>
+</html>
+
+

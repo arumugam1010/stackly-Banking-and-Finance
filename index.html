@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stackly — Premium Banking & Finance</title>
+  <meta name="description"
+    content="Stackly — Premium banking & finance management. Personal banking, business banking, loans, investments, cards and more." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="./css/style.css" rel="stylesheet" />
+  <meta property="og:image" content="https://bolt.new/static/og_default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div id="loader" class="loader">
+    <div class="loader__logo">
+      <span class="loader__ring"></span>
+      <span class="loader__text">Stackly</span>
+    </div>
+  </div>
+
+  <!-- Navbar injected by js/main.js -->
+  <nav id="main-nav" class="navbar navbar-expand-xl sticky-top main-nav"></nav>
+
+  <!-- Page content -->
+  <main id="page-content">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container position-relative">
+        <div class="row align-items-center min-vh-100">
+          <div class="col-lg-6" data-reveal>
+            <span class="badge badge-hero mb-3">2026 Fintech Edition</span>
+            <h1 class="hero__title">Banking, reimagined for <span class="text-gradient">tomorrow</span></h1>
+            <p class="hero__subtitle">Secure, smart and beautiful — manage your money, investments and cards all in one
+              premium platform built for the modern world.</p>
+            <div class="hero__actions">
+              <a href="404.html" class="btn btn-glow btn-lg me-2">Open an account <i
+                  class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+            <div class="hero__trust">
+              <div class="hero__trust-item"><i class="bi bi-shield-check"></i> Bank-grade security</div>
+              <div class="hero__trust-item"><i class="bi bi-lightning-charge"></i> Instant transfers</div>
+              <div class="hero__trust-item"><i class="bi bi-globe2"></i> 24/7 global access</div>
+            </div>
+          </div>
+          <div class="col-lg-6 d-none d-lg-block" data-reveal>
+            <img
+              src="./assets/images/img_5.webp"
+              alt="Banking" class="img-fluid rounded-4 shadow-lg"
+              style="max-height: 500px; object-fit: cover; width: 100%;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="section section-stats" id="stats">
+      <div class="container">
+        <div class="row g-2">
+          <div class="col-6 col-lg-3" data-reveal>
+            <div class="stat-card glass-card">
+              <div class="stat-card__icon bg-primary-soft"><i class="bi bi-people"></i></div>
+              <h3 class="stat-card__num" data-count="2450000" data-suffix="+">0</h3>
+              <p class="stat-card__label">Active Customers</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3" data-reveal>
+            <div class="stat-card glass-card">
+              <div class="stat-card__icon bg-success-soft"><i class="bi bi-cash-stack"></i></div>
+              <h3 class="stat-card__num" data-count="48" data-prefix="$" data-suffix="B+">$0</h3>
+              <p class="stat-card__label">Assets Managed</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3" data-reveal>
+            <div class="stat-card glass-card">
+              <div class="stat-card__icon bg-info-soft"><i class="bi bi-building"></i></div>
+              <h3 class="stat-card__num" data-count="120" data-suffix="+">0</h3>
+              <p class="stat-card__label">Countries Served</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3" data-reveal>
+            <div class="stat-card glass-card">
+              <div class="stat-card__icon bg-warning-soft"><i class="bi bi-star"></i></div>
+              <h3 class="stat-card__num" data-count="99" data-suffix="%">0</h3>
+              <p class="stat-card__label">Customer Satisfaction</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Banking Services -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="text-center mb-5" data-reveal>
+          <span class="badge badge-section mb-2">Our Services</span>
+          <h2 class="section-title">Everything you need to <span class="text-gradient">manage your money</span></h2>
+          <p class="section-subtitle">A full suite of premium financial services designed for individuals and businesses
+            alike.</p>
+        </div>
+        <div class="row g-2">
+          <div class="col-md-6 col-lg-4" data-reveal>
+            <a href="services.html" class="service-card glass-card text-decoration-none d-block">
+              <div class="service-card__icon bg-primary-soft"><i class="bi bi-wallet2"></i></div>
+              <h3>Personal Banking</h3>
+              <p>Checking & savings accounts with zero hidden fees and instant transfers.</p>
+              <span class="service-card__link">Learn more <i class="bi bi-arrow-right"></i></span>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4" data-reveal>
+            <a href="services.html" class="service-card glass-card text-decoration-none d-block">
+              <div class="service-card__icon bg-success-soft"><i class="bi bi-briefcase"></i></div>
+              <h3>Business Banking</h3>
+              <p>Powerful tools for payroll, invoicing and multi-user access for your team.</p>
+              <span class="service-card__link">Learn more <i class="bi bi-arrow-right"></i></span>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4" data-reveal>
+            <a href="loans.html" class="service-card glass-card text-decoration-none d-block">
+              <div class="service-card__icon bg-info-soft"><i class="bi bi-house"></i></div>
+              <h3>Loans & Mortgages</h3>
+              <p>Home, auto and personal loans with competitive rates and flexible terms.</p>
+              <span class="service-card__link">Learn more <i class="bi bi-arrow-right"></i></span>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4" data-reveal>
+            <a href="investments.html" class="service-card glass-card text-decoration-none d-block">
+              <div class="service-card__icon bg-warning-soft"><i class="bi bi-graph-up"></i></div>
+              <h3>Investments</h3>
+              <p>Stocks, ETFs and portfolios managed by AI-driven insights and experts.</p>
+              <span class="service-card__link">Learn more <i class="bi bi-arrow-right"></i></span>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4" data-reveal>
+            <a href="cards.html" class="service-card glass-card text-decoration-none d-block">
+              <div class="service-card__icon bg-danger-soft"><i class="bi bi-credit-card-2-front"></i></div>
+              <h3>Premium Cards</h3>
+              <p>Reward-packed debit and credit cards with global acceptance.</p>
+              <span class="service-card__link">Learn more <i class="bi bi-arrow-right"></i></span>
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4" data-reveal>
+            <a href="services.html" class="service-card glass-card text-decoration-none d-block">
+              <div class="service-card__icon bg-primary-soft"><i class="bi bi-shield-lock"></i></div>
+              <h3>Security & Fraud</h3>
+              <p>Real-time monitoring, biometric login and zero-liability protection.</p>
+              <span class="service-card__link">Learn more <i class="bi bi-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products / Personal vs Business -->
+    <section class="section section-alt" id="products">
+      <div class="container">
+        <div class="text-center mb-5" data-reveal>
+          <span class="badge badge-section mb-2">Featured Products</span>
+          <h2 class="section-title">Banking solutions for <span class="text-gradient">everyone</span></h2>
+        </div>
+        <div class="row g-2">
+          <div class="col-lg-6" data-reveal>
+            <div class="product-card glass-card">
+              <div class="product-card__header bg-grad-primary">
+                <i class="bi bi-person-badge"></i>
+                <h3>Personal Banking</h3>
+              </div>
+              <ul class="product-card__list">
+                <li><i class="bi bi-check-circle-fill text-success"></i> Free checking & savings accounts</li>
+                <li><i class="bi bi-check-circle-fill text-success"></i> Instant P2P transfers & payments</li>
+                <li><i class="bi bi-check-circle-fill text-success"></i> Budgeting & spending analytics</li>
+                <li><i class="bi bi-check-circle-fill text-success"></i> 24/7 concierge support</li>
+              </ul>
+              <a href="register.html" class="btn btn-glow w-100 mt-3">Get started</a>
+            </div>
+          </div>
+          <div class="col-lg-6" data-reveal>
+            <div class="product-card glass-card">
+              <div class="product-card__header bg-grad-success">
+                <i class="bi bi-building"></i>
+                <h3>Business Banking</h3>
+              </div>
+              <ul class="product-card__list">
+                <li><i class="bi bi-check-circle-fill text-success"></i> Multi-user business accounts</li>
+                <li><i class="bi bi-check-circle-fill text-success"></i> Automated payroll & invoicing</li>
+                <li><i class="bi bi-check-circle-fill text-success"></i> Expense management & reporting</li>
+                <li><i class="bi bi-check-circle-fill text-success"></i> API access & integrations</li>
+              </ul>
+              <a href="register.html" class="btn btn-success-glow w-100 mt-3">Explore business</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security -->
+    <section class="section" id="security">
+      <div class="container">
+        <div class="row align-items-center g-1">
+          <div class="col-lg-6" data-reveal>
+            <span class="badge badge-section mb-2">Security First</span>
+            <h2 class="section-title">Your money is <span class="text-gradient">always protected</span></h2>
+            <p class="section-subtitle">We use the highest standards of encryption, biometric authentication and
+              real-time fraud detection to keep your funds safe.</p>
+            <div class="security-features">
+              <div class="security-feature">
+                <div class="security-feature__icon"><i class="bi bi-fingerprint"></i></div>
+                <div>
+                  <h4>Biometric Login</h4>
+                  <p>Fingerprint & face recognition for secure access.</p>
+                </div>
+              </div>
+              <div class="security-feature">
+                <div class="security-feature__icon"><i class="bi bi-shield-lock"></i></div>
+                <div>
+                  <h4>256-bit Encryption</h4>
+                  <p>Bank-grade encryption on every transaction.</p>
+                </div>
+              </div>
+              <div class="security-feature">
+                <div class="security-feature__icon"><i class="bi bi-eye"></i></div>
+                <div>
+                  <h4>Real-time Monitoring</h4>
+                  <p>AI fraud detection watches 24/7 for anomalies.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-reveal>
+            <div class="text-center">
+              <img
+                src="./assets/images/img_6.webp"
+                alt="Security Protection" class="img-fluid rounded-4 shadow-lg"
+                style="max-height: 450px; object-fit: cover; width: 100%;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section section-alt" id="testimonials">
+      <div class="container">
+        <div class="text-center mb-5" data-reveal>
+          <span class="badge badge-section mb-2">Testimonials</span>
+          <h2 class="section-title">Loved by <span class="text-gradient">millions</span></h2>
+        </div>
+        <div class="row g-2">
+          <div class="col-md-6 col-lg-4" data-reveal>
+            <div class="testimonial-card glass-card">
+              <div class="testimonial-card__stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"Stackly completely transformed how I manage my finances. The dashboard is beautiful and transfers are
+                instant."</p>
+              <div class="testimonial-card__person">
+                <div class="avatar bg-grad-primary">SK</div>
+                <div><strong>Sarah Klein</strong><br><small>Personal Account</small></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-reveal>
+            <div class="testimonial-card glass-card">
+              <div class="testimonial-card__stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"As a business owner, the payroll and invoicing tools save me hours every week. Best business bank I've
+                used."</p>
+              <div class="testimonial-card__person">
+                <div class="avatar bg-grad-success">MR</div>
+                <div><strong>Marcus Reid</strong><br><small>Business Account</small></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" data-reveal>
+            <div class="testimonial-card glass-card">
+              <div class="testimonial-card__stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"The investment portfolio tools are incredible. I've grown my savings 20% in just one year with their
+                AI insights."</p>
+              <div class="testimonial-card__person">
+                <div class="avatar bg-grad-info">AL</div>
+                <div><strong>Amelia Lee</strong><br><small>Premium Investor</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section" id="cta">
+      <div class="container">
+        <div class="glass-card cta-card text-center" data-reveal>
+          <h2 class="cta-card__title">Ready to experience <span class="text-gradient">the future of banking?</span></h2>
+          <p class="cta-card__subtitle">Open your account in minutes. No paperwork, no hidden fees.</p>
+          <div class="cta-card__actions">
+            <a href="register.html" class="btn btn-glow btn-lg">Get started free <i
+                class="bi bi-arrow-right ms-1"></i></a>
+            <a href="contact.html" class="btn btn-outline-glow btn-lg">Talk to us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer injected by js/main.js -->
+  <footer id="main-footer" class="main-footer"></footer>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- Site JS -->
+  <script src="./js/data.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>

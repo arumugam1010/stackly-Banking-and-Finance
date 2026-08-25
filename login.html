@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In — Stackly</title>
+    <meta name="description" content="Sign in to your Stackly account." />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+  </head>
+  <body class="dashboard-body">
+    <div id="loader" class="loader"><div class="loader__logo"><span class="loader__ring"></span><span class="loader__text">Stackly</span></div></div>
+
+    <div class="auth-page">
+      <!-- Visual side -->
+      <div class="auth-visual d-none d-lg-flex">
+        <div class="auth-visual__content">
+          <a href="index.html" class="navbar-brand mb-5 d-inline-flex" style="color:#fff">
+            <img src="assets/images/logo-stackly.png" alt="Stackly" class="project-logo">
+          </a>
+          <h2>Welcome back to the future of banking.</h2>
+          <p>Sign in to access your accounts, manage your money and track your investments — all in one beautiful dashboard.</p>
+          <div class="auth-visual__features">
+            <div class="auth-visual__feature"><i class="bi bi-shield-check"></i> Bank-grade security on every login</div>
+            <div class="auth-visual__feature"><i class="bi bi-graph-up"></i> Real-time financial insights</div>
+            <div class="auth-visual__feature"><i class="bi bi-lightning-charge"></i> Instant transfers and payments</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form side -->
+      <div class="auth-form-side">
+        <div class="auth-form-wrapper">
+          <a href="index.html" class="navbar-brand mb-4 d-lg-none">
+            <img src="assets/images/logo-stackly.png" alt="Stackly" class="project-logo">
+          </a>
+          <h2>Sign in to your account</h2>
+          <p>Enter your credentials to access your dashboard.</p>
+
+          <!-- Role selector -->
+          <div class="role-selector">
+            <div class="role-option active" data-role="customer" onclick="selectRole('customer')">
+              <i class="bi bi-person-circle"></i>
+              <p>Customer</p>
+            </div>
+            <div class="role-option" data-role="admin" onclick="selectRole('admin')">
+              <i class="bi bi-shield-lock"></i>
+              <p>Admin</p>
+            </div>
+          </div>
+
+          <form id="loginForm">
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control" id="loginEmail" placeholder="you@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Password</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required />
+                <button class="btn btn-ghost" type="button" onclick="togglePassword('loginPassword', this)"><i class="bi bi-eye"></i></button>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe" checked />
+                <label class="form-check-label text-muted-2" for="rememberMe" style="font-size:0.85rem">Remember me</label>
+              </div>
+              <a href="404.html" style="font-size:0.85rem">Forgot password?</a>
+            </div>
+            <button type="submit" class="btn btn-glow w-100 btn-lg">Sign in <i class="bi bi-arrow-right ms-1"></i></button>
+          </form>
+
+
+          <p class="text-center text-muted-2 mt-4" style="font-size:0.875rem">
+            Don't have an account? <a href="register.html">Sign up free</a>
+          </p>
+          <div class="text-center mt-3">
+            <a href="index.html" class="text-muted-2 text-decoration-none" style="font-size:0.85rem; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color=''">
+              <i class="bi bi-arrow-left me-1"></i> Back to Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+      
+      
+
+      let selectedRole = 'customer';
+      window.selectRole = function(role) {
+        selectedRole = role;
+        document.querySelectorAll('.role-option').forEach(el => {
+          el.classList.toggle('active', el.dataset.role === role);
+        });
+      };
+
+      window.togglePassword = function(id, btn) {
+        const input = document.getElementById(id);
+        if (input.type === 'password') { input.type = 'text'; btn.innerHTML = '<i class="bi bi-eye-slash"></i>'; }
+        else { input.type = 'password'; btn.innerHTML = '<i class="bi bi-eye"></i>'; }
+      };
+
+
+      function getNameFromEmail(email) {
+        if (!email) return 'User';
+        const prefix = email.split('@')[0];
+        return prefix.split(/[._-]/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      }
+
+      document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          showToast('Invalid Email', 'Please enter a valid email address.', 'error');
+          return;
+        }
+        
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+        if (!passwordRegex.test(password)) {
+          showToast('Weak Password', 'Password must be at least 8 characters and include uppercase, lowercase, numbers, and symbols.', 'error');
+          return;
+        }
+
+        const userName = getNameFromEmail(email);
+        store.setSession({ role: selectedRole, email: email, name: userName });
+        showToast('Welcome back!', 'Login successful. Redirecting...', 'success');
+        setTimeout(() => { window.location.href = selectedRole === 'admin' ? 'admin-dashboard.html' : 'customer-dashboard.html'; }, 800);
+      });
+    </script>
+  </body>
+</html>
+
+
