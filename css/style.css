@@ -3349,11 +3349,11 @@ textarea.form-control {
 [data-theme="light"] .glass-card:has(.bg-danger-soft), [data-theme="light"] .glass-card:has(.bg-grad-danger) { background: rgba(239, 68, 68, 0.03); border-color: rgba(239, 68, 68, 0.5); }
 
 /* Align buttons to the bottom of cards */
-.loan-card, .product-card, .service-card {
+.loan-card, .product-card, .service-card, .investment-card {
   display: flex;
   flex-direction: column;
 }
 
-.loan-card .btn, .product-card .btn, .service-card .btn {
+.loan-card .btn, .product-card .btn, .service-card .btn, .investment-card .btn {
   margin-top: auto !important;
 }
