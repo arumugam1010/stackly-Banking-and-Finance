@@ -139,7 +139,9 @@ function injectFooter() {
       <div class="footer-grid">
         <div>
           <div class="footer-brand">
-            <img src="assets/images/logo-stackly.png" alt="Stackly" class="project-logo">
+            <a href="index.html">
+              <img src="assets/images/logo-stackly.png" alt="Stackly" class="project-logo">
+            </a>
           </div>
           <p class="footer-text">Premium banking & finance for the modern world. Secure, smart and beautiful — your money, simplified.</p>
           <div class="footer-social">
