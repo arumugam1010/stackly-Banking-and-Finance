@@ -3348,3 +3348,12 @@ textarea.form-control {
 [data-theme="light"] .glass-card:has(.bg-warning-soft), [data-theme="light"] .glass-card:has(.bg-grad-warning), [data-theme="light"] .glass-card:has(.bg-grad-gold) { background: rgba(245, 185, 66, 0.03); border-color: rgba(245, 185, 66, 0.5); }
 [data-theme="light"] .glass-card:has(.bg-danger-soft), [data-theme="light"] .glass-card:has(.bg-grad-danger) { background: rgba(239, 68, 68, 0.03); border-color: rgba(239, 68, 68, 0.5); }
 
+/* Align buttons to the bottom of cards */
+.loan-card, .product-card, .service-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.loan-card .btn, .product-card .btn, .service-card .btn {
+  margin-top: auto !important;
+}
