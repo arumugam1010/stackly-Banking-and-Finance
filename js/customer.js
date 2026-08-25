@@ -81,6 +81,16 @@ function initSidebar() {
       document.body.style.overflow = '';
     });
   });
+
+  const brandLogo = document.getElementById('dashboardBrandLogo');
+  if (brandLogo) {
+    brandLogo.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (typeof navigateTo === 'function') {
+        navigateTo('overview');
+      }
+    });
+  }
 }
 
 /* ---- Theme ---- */
@@ -757,38 +767,136 @@ function renderProfile() {
 /* ============================================
    PAGE: Settings
    ============================================ */
+window.switchSettingsTab = function(tab) {
+  document.querySelectorAll('.settings-nav-item').forEach(el => {
+    el.classList.toggle('active', el.dataset.tab === tab);
+  });
+  
+  const contentEl = document.getElementById('settingsContent');
+  if (!contentEl) return;
+  
+  let html = '';
+  if (tab === 'notifications') {
+    html = `
+      <h3 class="mb-4">Notification Preferences</h3>
+      ${['Transaction alerts','Deposit notifications','Withdrawal alerts','Loan EMI reminders','Card payment due','Investment updates','Security alerts','Promotional offers'].map(label => `
+        <div class="d-flex justify-content-between align-items-center py-2" style="border-bottom:var(--border-glass)">
+          <span>${label}</span>
+          <div class="form-check form-switch"><input class="form-check-input" type="checkbox" checked /></div>
+        </div>`).join('')}
+      <div class="d-flex justify-content-between align-items-center py-2">
+        <span>Email notifications</span>
+        <div class="form-check form-switch"><input class="form-check-input" type="checkbox" checked /></div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center py-2">
+        <span>SMS notifications</span>
+        <div class="form-check form-switch"><input class="form-check-input" type="checkbox" /></div>
+      </div>
+      <button class="btn btn-glow mt-3" onclick="showToast('Settings Saved','Your preferences have been saved.','success')">Save Preferences</button>
+    `;
+  } else if (tab === 'security') {
+    html = `
+      <h3 class="mb-4">Security Settings</h3>
+      <div class="mb-4">
+        <h5>Change Password</h5>
+        <div class="mb-3"><input type="password" class="form-control" placeholder="Current Password"></div>
+        <div class="mb-3"><input type="password" class="form-control" placeholder="New Password"></div>
+        <div class="mb-3"><input type="password" class="form-control" placeholder="Confirm New Password"></div>
+        <button class="btn btn-glow" onclick="showToast('Password Updated','Your password was changed successfully.','success')">Update Password</button>
+      </div>
+      <div class="d-flex justify-content-between align-items-center py-3" style="border-top:var(--border-glass)">
+        <div>
+          <h5>Two-Factor Authentication (2FA)</h5>
+          <p class="text-muted-2 mb-0">Secure your account with an extra layer of security.</p>
+        </div>
+        <div class="form-check form-switch"><input class="form-check-input" type="checkbox" /></div>
+      </div>
+    `;
+  } else if (tab === 'appearance') {
+    html = `
+      <h3 class="mb-4">Appearance Settings</h3>
+      <div class="d-flex justify-content-between align-items-center py-3">
+        <div>
+          <h5>Dark Mode</h5>
+          <p class="text-muted-2 mb-0">Switch between light and dark themes.</p>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="darkModeToggle" ${document.documentElement.getAttribute('data-theme') !== 'light' ? 'checked' : ''} onchange="document.getElementById('themeToggle').click()" />
+        </div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center py-3" style="border-top:var(--border-glass)">
+        <div>
+          <h5>Compact Mode</h5>
+          <p class="text-muted-2 mb-0">Reduce spacing for a denser layout.</p>
+        </div>
+        <div class="form-check form-switch"><input class="form-check-input" type="checkbox" /></div>
+      </div>
+    `;
+  } else if (tab === 'language') {
+    html = `
+      <h3 class="mb-4">Language & Region</h3>
+      <div class="mb-3">
+        <label class="form-label">Language</label>
+        <select class="form-select">
+          <option>English (US)</option>
+          <option>English (UK)</option>
+          <option>Spanish</option>
+          <option>French</option>
+          <option>German</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Timezone</label>
+        <select class="form-select">
+          <option>UTC-05:00 Eastern Time</option>
+          <option>UTC-08:00 Pacific Time</option>
+          <option>UTC+00:00 GMT</option>
+        </select>
+      </div>
+      <button class="btn btn-glow mt-2" onclick="showToast('Language Updated','Language settings saved.','success')">Save Changes</button>
+    `;
+  } else if (tab === 'privacy') {
+    html = `
+      <h3 class="mb-4">Privacy Settings</h3>
+      <div class="d-flex justify-content-between align-items-center py-3">
+        <div>
+          <h5>Profile Visibility</h5>
+          <p class="text-muted-2 mb-0">Allow others to find your profile by email.</p>
+        </div>
+        <div class="form-check form-switch"><input class="form-check-input" type="checkbox" checked /></div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center py-3" style="border-top:var(--border-glass)">
+        <div>
+          <h5>Data Sharing</h5>
+          <p class="text-muted-2 mb-0">Share usage data to help us improve Stackly.</p>
+        </div>
+        <div class="form-check form-switch"><input class="form-check-input" type="checkbox" /></div>
+      </div>
+      <button class="btn btn-glow mt-3" onclick="showToast('Privacy Updated','Privacy preferences saved.','success')">Save Privacy</button>
+    `;
+  }
+  contentEl.innerHTML = html;
+};
+
 function renderSettings() {
+  setTimeout(() => window.switchSettingsTab('notifications'), 0);
   return `
     <div class="page-title-row"><div><h1>Settings</h1><p>Manage your preferences.</p></div></div>
     <div class="row g-3">
       <div class="col-lg-4">
         <div class="glass-card p-3">
           <div class="settings-nav">
-            <div class="settings-nav-item active"><i class="bi bi-bell"></i> Notifications</div>
-            <div class="settings-nav-item"><i class="bi bi-shield-lock"></i> Security</div>
-            <div class="settings-nav-item"><i class="bi bi-display"></i> Appearance</div>
-            <div class="settings-nav-item"><i class="bi bi-globe2"></i> Language</div>
-            <div class="settings-nav-item"><i class="bi bi-lock"></i> Privacy</div>
+            <div class="settings-nav-item active" data-tab="notifications" onclick="window.switchSettingsTab('notifications')"><i class="bi bi-bell"></i> Notifications</div>
+            <div class="settings-nav-item" data-tab="security" onclick="window.switchSettingsTab('security')"><i class="bi bi-shield-lock"></i> Security</div>
+            <div class="settings-nav-item" data-tab="appearance" onclick="window.switchSettingsTab('appearance')"><i class="bi bi-display"></i> Appearance</div>
+            <div class="settings-nav-item" data-tab="language" onclick="window.switchSettingsTab('language')"><i class="bi bi-globe2"></i> Language</div>
+            <div class="settings-nav-item" data-tab="privacy" onclick="window.switchSettingsTab('privacy')"><i class="bi bi-lock"></i> Privacy</div>
           </div>
         </div>
       </div>
       <div class="col-lg-8">
-        <div class="glass-card p-4">
-          <h3 class="mb-4">Notification Preferences</h3>
-          ${['Transaction alerts','Deposit notifications','Withdrawal alerts','Loan EMI reminders','Card payment due','Investment updates','Security alerts','Promotional offers'].map(label => `
-            <div class="d-flex justify-content-between align-items-center py-2" style="border-bottom:var(--border-glass)">
-              <span>${label}</span>
-              <div class="form-check form-switch"><input class="form-check-input" type="checkbox" checked /></div>
-            </div>`).join('')}
-          <div class="d-flex justify-content-between align-items-center py-2">
-            <span>Email notifications</span>
-            <div class="form-check form-switch"><input class="form-check-input" type="checkbox" checked /></div>
-          </div>
-          <div class="d-flex justify-content-between align-items-center py-2">
-            <span>SMS notifications</span>
-            <div class="form-check form-switch"><input class="form-check-input" type="checkbox" /></div>
-          </div>
-          <button class="btn btn-glow mt-3" onclick="showToast('Settings Saved','Your preferences have been saved.','success')">Save Preferences</button>
+        <div class="glass-card p-4" id="settingsContent">
+          <!-- Content injected via switchSettingsTab -->
         </div>
       </div>
     </div>

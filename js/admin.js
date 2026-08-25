@@ -77,6 +77,16 @@ function initSidebar() {
       document.body.style.overflow = '';
     });
   });
+
+  const brandLogo = document.getElementById('dashboardBrandLogo');
+  if (brandLogo) {
+    brandLogo.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (typeof navigateTo === 'function') {
+        navigateTo('dashboard');
+      }
+    });
+  }
 }
 
 /* ---- Theme toggle (dashboard specific) ---- */
@@ -983,6 +993,12 @@ function filterCustomers() {
     row.style.display = show ? '' : 'none';
   });
 }
+
+window.navigateTo = function(page) {
+  document.querySelectorAll('.sidebar-link').forEach(l => l.classList.toggle('active', l.dataset.page === page));
+  currentPage = page;
+  renderPage(page);
+};
 
 /* ============================================
    INIT
