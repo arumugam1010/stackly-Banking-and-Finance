@@ -350,9 +350,10 @@ function initMain() {
     const isToast = target.closest('.toast-container, .nb-toast');
     const isModalClose = target.hasAttribute('data-bs-dismiss') || target.classList.contains('btn-close');
     const isAccordion = target.closest('.accordion, [data-bs-toggle="collapse"]');
+    const isFooter = target.closest('#main-footer, footer');
 
     // Allow interaction if it's within excluded areas
-    if (isNavbar || isSidebar || isAuth || isErrorPage || isToast || isModalClose || isAccordion) {
+    if (isNavbar || isSidebar || isAuth || isErrorPage || isToast || isModalClose || isAccordion || isFooter) {
       if (target.tagName === 'A' && target.getAttribute('href') === '#') {
         e.preventDefault();
         e.stopPropagation();
