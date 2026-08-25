@@ -1764,8 +1764,9 @@ p {
 }
 
 .sidebar-footer {
-  padding: 1rem 0.75rem;
+  padding: 1rem 0.75rem 2rem 0.75rem;
   border-top: var(--border-glass);
+  flex-shrink: 0;
 }
 
 .sidebar-user {
