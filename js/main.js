@@ -154,13 +154,17 @@ function injectFooter() {
         <div class="footer-col">
           <h5>Quick Links</h5>
           <ul>
-            ${navLinks.slice(0, 4).map(l => `<li><a href="${l.href}">${l.label}</a></li>`).join('')}
+            ${navLinks.map(l => `<li><a href="${l.href}">${l.label}</a></li>`).join('')}
           </ul>
         </div>
         <div class="footer-col">
           <h5>Explore</h5>
           <ul>
-            ${navLinks.slice(4).map(l => `<li><a href="${l.href}">${l.label}</a></li>`).join('')}
+            <li><a href="about.html">Careers</a></li>
+            <li><a href="contact.html">Support Center</a></li>
+            <li><a href="404.html">Press & Media</a></li>
+            <li><a href="404.html">Investor Relations</a></li>
+            <li><a href="404.html">API Documentation</a></li>
           </ul>
         </div>
         <div class="footer-col">

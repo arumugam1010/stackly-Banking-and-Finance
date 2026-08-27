@@ -113,9 +113,9 @@
   --bg-surface-2: rgba(205, 215, 230, 0.6);
   --bg-glass: rgba(220, 228, 240, 0.85);
   --bg-glass-hover: #ebf0f7;
-  --bg-input: rgba(205, 215, 230, 0.8);
+  --bg-input: #ffffff;
   --bg-sidebar: rgba(220, 228, 240, 0.9);
-  --bg-topbar: rgba(220, 228, 240, 0.8);
+  --bg-topbar: rgba(230, 235, 245, 0.8);
 
   --border-glass: 1px solid rgba(15, 31, 61, 0.15);
   --border-glass-hover: 1px solid rgba(37, 99, 235, 0.3);
@@ -571,12 +571,12 @@ p {
 }
 
 .footer-col ul li {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .footer-col ul li a {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   transition: all var(--transition);
 }
 
@@ -1518,7 +1518,7 @@ p {
 }
 
 .form-control::placeholder {
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .input-group-text {
@@ -2501,7 +2501,7 @@ p {
 }
 
 .form-control::placeholder {
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 textarea.form-control {
