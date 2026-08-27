@@ -41,7 +41,7 @@ function injectNavbar() {
   nav.innerHTML = `
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="assets/images/logo-stackly.png" alt="Stackly" class="project-logo">
+        <img src="assets/images/logo-stackly.webp" alt="Stackly" class="project-logo">
       </a>
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#navOffcanvas" aria-controls="navOffcanvas" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"><span></span></span>
@@ -76,7 +76,7 @@ function injectNavbar() {
     <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="navOffcanvas" aria-labelledby="navOffcanvasLabel" style="width: 320px; background-color: #0b1120 !important;">
       <div class="offcanvas-header p-4 pb-2">
         <a class="navbar-brand text-white d-flex align-items-center" href="index.html">
-          <img src="assets/images/logo-stackly.png" alt="Stackly" class="project-logo">
+          <img src="assets/images/logo-stackly.webp" alt="Stackly" class="project-logo">
         </a>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
@@ -140,7 +140,7 @@ function injectFooter() {
         <div>
           <div class="footer-brand">
             <a href="index.html">
-              <img src="assets/images/logo-stackly.png" alt="Stackly" class="project-logo">
+              <img src="assets/images/logo-stackly.webp" alt="Stackly" class="project-logo">
             </a>
           </div>
           <p class="footer-text">Premium banking & finance for the modern world. Secure, smart and beautiful — your money, simplified.</p>
